@@ -1,0 +1,28 @@
+.login {
+  height: 900px;
+  width: 90%;
+  background-color: black;
+  max-width: 100rem;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+.label{
+  color: aliceblue;
+  font-size: 30px;
+
+}
+
+.backdrop{
+  background-color: black;
+}
+
+.input{
+  font-size: 30px;
+}
+.actions {
+  text-align: center;
+}
+
+.button1{
+  font-size: 30px;
+}
