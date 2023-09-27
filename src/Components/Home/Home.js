@@ -2,8 +2,7 @@ import Form from "./Form";
 import ListNotes from "./ListNotes";
 import { useState } from "react";
 import './Home.css';
-const dummy=["bring sign of acc ndakdnaw wad wona daw odnwadnaw dwawadwaddwa da dwa awdwad a wda dawd wdwad wa"
-,"do ai hw","go to watch movie"]
+const dummy=[""]
 const Home=(props)=>{
 
     

@@ -1,7 +1,11 @@
-import Card from '../Card/Card';
-import classes from './Login.module.css';
+
+import  './Login.css';
 import React ,{useState} from 'react';
 import Register from '../Register/Register';
+
+import user_icon from '../Assets/person.png';
+import email_icon from '../Assets/email.png';
+import password_icon from '../Assets/password.png';
 const Login=(props)=>{
     const [isRegistered,setIsResgistered]=useState(false);
     const [enteredEmail,setEnteredEmail]=useState('');
@@ -31,7 +35,7 @@ const Login=(props)=>{
         console.log(loadedEmails)
         for(const ptr in loadedEmails){
             if(loadedEmails[ptr].email===enteredEmail && loadedEmails[ptr].pw===enteredPw){
-                alert('match');
+                alert('Username and password matched with backend');
                 console.log(loadedEmails[ptr].id)
                 props.logIn(loadedEmails[ptr].id);
             }
@@ -63,18 +67,34 @@ const Login=(props)=>{
     return (
         
     <div>
-        {isRegistered && <Register rval={registerHandlerRemover}/>}
-        <h1>This is Login page</h1>
-        <Card className={classes.login}>
+        {isRegistered ? <Register rval={registerHandlerRemover}/> :
+        
+        <div className='container'>
+      <h1 className='head'>This is Login Page</h1>
         <form onSubmit={handler}>
-            <label className={classes.label}>Enter email</label><br/>
-            <input className={classes.input} onChange={onChangeEmail} type='text'></input><br/>
-            <label className={classes.label}>Enter Password</label><br/>
-            <input className={classes.input} onChange={onChangePw} type='text'></input><br/>
-            <input type='submit'></input>
-        </form>
-        <input type='button' onClick={registerHandler} value='register'></input>
-        </Card>
-    </div>)
+            <div className='inputs'>
+            <div className='input'>
+            <img src={email_icon} alt=''/>
+            <input  onChange={onChangeEmail} type='text'></input><br/>
+            </div>
+            <div className='input'>
+            <img src={password_icon} alt=''/>
+            <input  onChange={onChangePw} type='text'></input><br/>
+            </div>
+            </div>
+            
+            <button type='submit' className='submit-btn' >Submit</button>
+            <button className='submit-btn' onClick={registerHandler} >Register</button>
+  
+       ' </form>
+       
+ 
+
+        </div>
+        
+        }
+        
+    </div>
+    )
 }
 export default Login;

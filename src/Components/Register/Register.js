@@ -1,7 +1,10 @@
-import classes from '../Login/Login.module.css';
-import classes1 from './Register.module.css';
+import  '../Login/Login.css';
+import  './Register.css';
 import React,{useState} from 'react';
-import Card from '../Card/Card';
+import user_icon from '../Assets/person.png';
+import email_icon from '../Assets/email.png';
+import password_icon from '../Assets/password.png';
+
 const Register = (props)=>{
     const [isRegistered,setIsResgistered]=useState(false);
     const [formIsValid,setFormIsValid]=useState(false);
@@ -80,20 +83,28 @@ const Register = (props)=>{
     const backHandler=()=>{
         props.rval();
     }
-    return (<div>
-        <h1>This is registration site</h1>
-        <Card className={classes1.regis}>
-
-        <form onSubmit={handler}>
-        <label className={classes.label}>Enter email</label><br/>
-            <input className={classes.input} onChange={onChangeEmail} type='text'></input><br/>
-            <label className={classes.label}>Enter Password</label><br/>
-            <input className={classes.input} onChange={onChangePw} type='text'></input><br/>
-            <input type='submit'></input>
-        </form>
-        <input type='button' onClick={backHandler} value ='back'></input>
+    return (
+    <div className='container'>
+        <h1 className='head'>This is registration site</h1>
         
-        </Card>
+        
+        <form onSubmit={handler}>
+        <div className='inputs'>
+        <div className='input'>
+        <img src={email_icon} alt=''/>
+        <input  onChange={onChangeEmail} type='text'></input><br/>
+        </div>
+
+        <div className='input'>
+          <img src={password_icon} alt=''/>
+            <input  onChange={onChangePw} type='text'></input><br/>
+           
+        </div>
+        </div>
+        <button className='submit-btn' type='submit'>Submit</button>
+        </form>
+        
+        <button className='submit-btn' onClick={backHandler} >Back</button>
     </div>)
 }
 
